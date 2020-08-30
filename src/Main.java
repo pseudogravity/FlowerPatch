@@ -47,17 +47,22 @@ public class Main {
       if (known[i0][j0][k0] && fcount[i0][j0][k0] == 0) {
         missingcount++;
       }
+      // branchless for possible use in CUDA
+      // missingcount += ((fcount[i0][j0][k0] - 1) >> 31) & known[i0][j0][k0];
 
       int i1 = (7 + random.nextInt(8)) - random.nextInt(8);
       int j1 = (3 + random.nextInt(4)) - random.nextInt(4);
       int k1 = (7 + random.nextInt(8)) - random.nextInt(8);
-      fcount[i1][j1][k1]++;
       ibuffer[ptr] = i1;
       jbuffer[ptr] = j1;
       kbuffer[ptr] = k1;
-      if (known[i1][j1][k1] && fcount[i1][j1][k1] == 1) {
+      if (known[i1][j1][k1] && fcount[i1][j1][k1] == 0) {
         missingcount--;
       }
+      // branchless for possible use in CUDA
+      // missingcount -= ((fcount[i1][j1][k1] - 1) >> 31) & known[i1][j1][k1];
+      fcount[i1][j1][k1]++;
+
       time++;
     }
 
