@@ -1,18 +1,5 @@
-import java.util.Random;
-
 // from KaptainWutax SeedUtils but reduced to essential parts
 public class LCG {
-  public static void main(String[] args) {
-    Random r = new Random(0);
-    for (int i = 0; i < 10; i++) {
-      System.out.print(i + " ");
-      System.out.println(r.nextInt(1 << 30));
-    }
-
-    long skipseed = JAVA.combine(5).nextSeed(0 ^ 0x5DEECE66DL) ^ 0x5DEECE66DL;
-    Random r2 = new Random(skipseed);
-    System.out.println(r2.nextInt(1 << 30));
-  }
 
   public static final LCG JAVA = new LCG(25214903917L, 11L, 1L << 48);
 
