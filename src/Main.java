@@ -15,16 +15,16 @@ public class Main {
     Random random = new Random(internalseed ^ 0x5DEECE66DL);
 
     long maxtime = blocklength / 6 + 1;
-    System.out.println("maxtime:" + maxtime);
+    // System.out.println("maxtime:" + maxtime);
 
     int[][] coords = { { 97, 68, -100 }, { 99, 68, -102 }, { 100, 68, -100 }, { 100, 68, -99 }, { 98, 68, -98 },
         { 100, 69, -103 }, { 95, 68, -102 }, { 99, 68, -98 }, { 97, 69, -104 }, { 96, 67, -98 }, { 94, 68, -100 },
         { 99, 68, -97 }, { 102, 68, -102 }, { 100, 68, -96 }, { 93, 67, -99 }, { 102, 67, -96 }, { 95, 70, -107 },
         { 105, 68, -101 } };
 
-    // simple test with known[0][0][0] = true
-    // int[] center = { 0, 0, 0 };
-    // int[][] coords = { { -7, -3, -7 } };
+    // simple test
+    // int[] center = { 7, 3, 7 };
+    // int[][] coords = { { 0, 0, 0 }, { 1, 1, 1 }, { 2, 2, 2 }, { 3, 3, 3 } };
 
     boolean[][][] known = new boolean[15][7][15];
     for (int[] coord : coords) {
